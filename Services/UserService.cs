@@ -1,42 +1,46 @@
-﻿using ClassyAdsWinApp.Interfaces;
-using ClassyAdsWinApp.Models;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Configuration;
+using ClassyAdsWinApp.Interfaces;
+using ClassyAdsWinApp.Models;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace ClassyAdsWinApp.Services
 {
     internal class UserService : IUserService
     {
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient httpClient;
 
         public UserService()
         {
-            _httpClient = new HttpClient();
+            httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(ConfigurationManager.AppSettings["ServerApiEndpoint"])
+            };
         }
 
-        public async Task<bool> Login(UserLoginInput userLoginInput)
+        public Task<User> Login(UserLoginInput loginInput)
         {
-            try
-            {
-                var response = await _httpClient.PostAsync("login", userLoginInput);
+            throw new NotImplementedException();
+        }
 
-                // If the request is successful (status code 200), deserialize the response content into a User object
-                if (response.IsSuccessStatusCode)
-                {
-                    var user = await response.Content.ReadAsAsync<User>();
-                    return user;
-                }
-                else
-                {
-                    // Handle the error response or throw an exception
-                    var errorMessage = await response.Content.ReadAsStringAsync();
-                    throw new Exception($"Login failed: {errorMessage}");
-                }
+        public async Task<User> Register(UserRegisterInput registerInput)
+        {
+            var json = JsonConvert.SerializeObject(registerInput);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            } catch (Exception ex)
+            var response = await httpClient.PostAsync("/users/register", content);
+
+            if (response.IsSuccessStatusCode) {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var user = JsonConvert.DeserializeObject<User>(responseContent);
+                return user;
+            } else
             {
-                throw new Exception("An error occurred while logging in.", ex);
+                return null;
             }
         }
     }

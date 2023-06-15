@@ -6,6 +6,8 @@ namespace ClassyAdsWinApp.Interfaces
 {
     internal interface IUserService
     {
-        Task<Boolean> Login(UserLoginInput userLoginInput);
+        Task<User> Login(UserLoginInput loginInput);
+
+        Task<User> Register(UserRegisterInput registerInput);
     }
 }
