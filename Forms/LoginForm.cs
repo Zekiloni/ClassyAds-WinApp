@@ -1,14 +1,14 @@
-﻿using ClassyAdsWinApp.Interfaces;
+﻿using System;
+using System.Windows.Forms;
+using ClassyAdsWinApp.Interfaces;
 using ClassyAdsWinApp.Models;
 using ClassyAdsWinApp.Services;
-using System;
-using System.Windows.Forms;
 
 namespace ClassyAdsWinApp.Forms
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : BaseForm
     {
-        private IUserService _userService;
+        private IUserService userService;
 
         public LoginForm()
         {
@@ -18,7 +18,7 @@ namespace ClassyAdsWinApp.Forms
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            _userService = new UserService();
+            userService = new UserService();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -34,7 +34,14 @@ namespace ClassyAdsWinApp.Forms
 
             UserLoginInput input = new UserLoginInput { Username = username, Password = password };
 
-            var respone = _userService.Login(input);
+            var response = userService.Login(input);
+        }
+
+        private void BackToMainButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }

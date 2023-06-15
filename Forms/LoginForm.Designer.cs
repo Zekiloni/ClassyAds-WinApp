@@ -33,6 +33,7 @@
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.BackToMainButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UsernameTextBox
@@ -42,7 +43,7 @@
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.PasswordChar = '*';
             this.UsernameTextBox.Size = new System.Drawing.Size(192, 20);
-            this.UsernameTextBox.TabIndex = 0;
+            this.UsernameTextBox.TabIndex = 1;
             // 
             // PasswordTextBox
             // 
@@ -50,7 +51,7 @@
             this.PasswordTextBox.MaxLength = 64;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(192, 20);
-            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TabIndex = 0;
             // 
             // UsernameLabel
             // 
@@ -80,11 +81,24 @@
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // BackToMainButton
+            // 
+            this.BackToMainButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackToMainButton.ForeColor = System.Drawing.Color.Black;
+            this.BackToMainButton.Location = new System.Drawing.Point(26, 193);
+            this.BackToMainButton.Name = "BackToMainButton";
+            this.BackToMainButton.Size = new System.Drawing.Size(192, 33);
+            this.BackToMainButton.TabIndex = 5;
+            this.BackToMainButton.Text = "Go back";
+            this.BackToMainButton.UseVisualStyleBackColor = false;
+            this.BackToMainButton.Click += new System.EventHandler(this.BackToMainButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 200);
+            this.ClientSize = new System.Drawing.Size(256, 238);
+            this.Controls.Add(this.BackToMainButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
@@ -105,5 +119,6 @@
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button BackToMainButton;
     }
 }
