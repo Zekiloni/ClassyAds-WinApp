@@ -26,6 +26,13 @@ namespace ClassyAdsWinApp.Models
             }
         }
 
+        public bool IsLoggedIn()
+        {
+            return !string.IsNullOrEmpty(Token) && User != null;
+        }
+
+
+
         public void SetUser(User user, string token)
         {
             User = user;

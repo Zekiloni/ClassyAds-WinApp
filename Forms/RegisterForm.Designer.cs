@@ -160,7 +160,6 @@
             this.BirthdayLabel.Size = new System.Drawing.Size(45, 13);
             this.BirthdayLabel.TabIndex = 11;
             this.BirthdayLabel.Text = "Birthday";
-            this.BirthdayLabel.Click += new System.EventHandler(this.BirthdayLabel_Click);
             // 
             // BirthdayDatePicker
             // 

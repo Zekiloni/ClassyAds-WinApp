@@ -1,9 +1,6 @@
-﻿using ClassyAdsWinApp.Forms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using ClassyAdsWinApp.Forms;
 
 namespace ClassyAdsWinApp
 {
@@ -17,7 +14,7 @@ namespace ClassyAdsWinApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CategoryGridViewForm());
+            Application.Run(new MainForm());
         }
     }
 }

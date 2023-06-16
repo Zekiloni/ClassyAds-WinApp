@@ -35,9 +35,13 @@ namespace ClassyAdsWinApp.Forms
             UserLoginInput input = new UserLoginInput { Username = username, Password = password };
 
             var response = userService.Login(input);
-            if (response != null)
+
+            if (response == null)
             {
-                // ....
+                MessageBox.Show("Username or password inccorect.");
+            } else
+            {
+                BackToMainButton_Click(sender, e);
             }
         }
 

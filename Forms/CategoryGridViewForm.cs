@@ -69,5 +69,12 @@ namespace ClassyAdsWinApp.Forms
                 y += 20;
             }
         }
+
+        private void GoBackToMain_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            this.Hide();
+            mainForm.Show();
+        }
     }
 }

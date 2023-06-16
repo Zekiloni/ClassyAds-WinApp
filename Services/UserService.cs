@@ -34,7 +34,7 @@ namespace ClassyAdsWinApp.Services
                 var loginSession = JsonConvert.DeserializeObject<LoginSuccessOutput>(responseContent);
 
                 UserSession.Active.SetUser(loginSession.User, loginSession.Token);
-                return null;
+                return loginSession.User;
             } else
             {
                 return null;
@@ -58,7 +58,7 @@ namespace ClassyAdsWinApp.Services
             }
         }
 
-        public async Task Logout()
+        public void Logout()
         {
             UserSession.Active.ClearUser();
         }

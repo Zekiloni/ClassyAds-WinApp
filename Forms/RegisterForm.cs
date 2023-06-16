@@ -29,7 +29,7 @@ namespace ClassyAdsWinApp.Forms
             mainForm.Show();
         }
 
-        private void RegisterButton_Click(object sender, EventArgs e)
+        private async void RegisterButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextbox.Text;
             string password = PasswordTextbox.Text;
@@ -78,12 +78,15 @@ namespace ClassyAdsWinApp.Forms
                 DateOfBirth = birthday,
             };
 
-            userService.Register(input);
-        }
+            var user = await userService.Register(input);
 
-        private void BirthdayLabel_Click(object sender, EventArgs e)
-        {
-
+            if (user == null)
+            {
+                MessageBox.Show("Registration failed.");
+            } else
+            {
+                BackToMainButton_Click(sender, new EventArgs());
+            }
         }
     }
 }

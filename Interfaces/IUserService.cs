@@ -9,6 +9,6 @@ namespace ClassyAdsWinApp.Interfaces
 
         Task<User> Register(UserRegisterInput registerInput);
 
-        Task Logout();
+        void Logout();
     }
 }
