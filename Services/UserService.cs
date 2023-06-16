@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Configuration;
 using ClassyAdsWinApp.Interfaces;
 using ClassyAdsWinApp.Models;
-using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -22,9 +21,24 @@ namespace ClassyAdsWinApp.Services
             };
         }
 
-        public Task<User> Login(UserLoginInput loginInput)
+        public async Task<User> Login(UserLoginInput loginInput)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(loginInput);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync("/users/login", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var loginSession = JsonConvert.DeserializeObject<LoginSuccessOutput>(responseContent);
+
+                UserSession.Active.SetUser(loginSession.User, loginSession.Token);
+                return null;
+            } else
+            {
+                return null;
+            }
         }
 
         public async Task<User> Register(UserRegisterInput registerInput)
@@ -42,6 +56,11 @@ namespace ClassyAdsWinApp.Services
             {
                 return null;
             }
+        }
+
+        public async Task Logout()
+        {
+            UserSession.Active.ClearUser();
         }
     }
 }

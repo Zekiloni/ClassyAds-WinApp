@@ -1,6 +1,5 @@
-﻿using ClassyAdsWinApp.Models;
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ClassyAdsWinApp.Models;
 
 namespace ClassyAdsWinApp.Interfaces
 {
@@ -9,5 +8,7 @@ namespace ClassyAdsWinApp.Interfaces
         Task<User> Login(UserLoginInput loginInput);
 
         Task<User> Register(UserRegisterInput registerInput);
+
+        Task Logout();
     }
 }
