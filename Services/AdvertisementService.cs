@@ -10,11 +10,13 @@ namespace ClassyAdsWinApp.Services
 {
     internal class AdvertisementService : IAdvertisementService
     {
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient httpClient;
 
         public AdvertisementService() {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(ConfigurationManager.AppSettings["ServerApiEndpoint"]);
+            httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(ConfigurationManager.AppSettings["ServerApiEndpoint"])
+            };
         }
 
         public Task<IEnumerable<Advertisement>> GetAdvertisementListAsync()

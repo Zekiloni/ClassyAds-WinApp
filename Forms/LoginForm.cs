@@ -35,6 +35,10 @@ namespace ClassyAdsWinApp.Forms
             UserLoginInput input = new UserLoginInput { Username = username, Password = password };
 
             var response = userService.Login(input);
+            if (response != null)
+            {
+                // ....
+            }
         }
 
         private void BackToMainButton_Click(object sender, EventArgs e)

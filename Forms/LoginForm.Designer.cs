@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.BackToMainButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // UsernameTextBox
-            // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(26, 102);
-            this.UsernameTextBox.MaxLength = 128;
-            this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.PasswordChar = '*';
-            this.UsernameTextBox.Size = new System.Drawing.Size(192, 20);
-            this.UsernameTextBox.TabIndex = 1;
-            // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(26, 41);
-            this.PasswordTextBox.MaxLength = 64;
+            this.PasswordTextBox.Location = new System.Drawing.Point(26, 102);
+            this.PasswordTextBox.MaxLength = 128;
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(192, 20);
-            this.PasswordTextBox.TabIndex = 0;
+            this.PasswordTextBox.TabIndex = 1;
+            // 
+            // UsernameTextBox
+            // 
+            this.UsernameTextBox.Location = new System.Drawing.Point(26, 41);
+            this.UsernameTextBox.MaxLength = 64;
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(192, 20);
+            this.UsernameTextBox.TabIndex = 0;
             // 
             // UsernameLabel
             // 
@@ -102,8 +102,8 @@
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
-            this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UsernameTextBox);
+            this.Controls.Add(this.PasswordTextBox);
             this.Name = "LoginForm";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -114,8 +114,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;

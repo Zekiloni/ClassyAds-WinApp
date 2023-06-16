@@ -1,26 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassyAdsWinApp.Forms;
 
 namespace ClassyAdsWinApp
 {
-    public partial class MainForm : Form
+    public partial class MainForm : BaseForm
     {
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+
+        }
+
+        private void GoToRegisterButton_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            this.Hide();
+            registerForm.Show();
+        }
+
+        private void GoToLoginButton_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            loginForm.Show();
         }
     }
 }
